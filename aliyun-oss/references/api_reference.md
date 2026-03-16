@@ -109,18 +109,18 @@ result = client.copy_object(oss.CopyObjectRequest(
 ```python
 import datetime
 
-expire_at = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=3600)
-
-result = client.presign(oss.PresignRequest(
-    method="GET",
-    bucket="my-bucket",
-    key="path/to/object.txt",
-    expiration=expire_at,  # datetime 对象，UTC 时区
-))
+# 正确用法：第一个参数传 GetObjectRequest，过期时间通过 expires=timedelta 传入
+result = client.presign(
+    oss.GetObjectRequest(bucket="my-bucket", key="path/to/object.txt"),
+    expires=datetime.timedelta(seconds=3600),  # timedelta，不是 datetime
+)
 print(result.url)  # 带签名的临时下载 URL
 ```
 
 **预签名 URL 有效期限制：** 最长 604800 秒（7 天）
+
+> ⚠️ 常见错误：不要使用 `oss.PresignRequest(expiration=datetime_obj)` 的方式，
+> 该方式会导致签名计算异常（SignatureDoesNotMatch）。应使用上方示例的正确调用形式。
 
 ## oss_client.py 脚本用法
 

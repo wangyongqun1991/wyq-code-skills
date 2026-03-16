@@ -196,17 +196,15 @@ def cmd_presign(args):
     key = args.key
     expires = args.expires  # 秒
 
-    expire_at = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=expires)
-
     print(f"[INFO] 生成预签名 URL: oss://{bucket}/{key}，有效期 {expires} 秒")
 
-    result = client.presign(oss.PresignRequest(
-        method="GET",
-        bucket=bucket,
-        key=key,
-        expiration=expire_at,
-    ))
+    # 正确用法：第一个参数传 GetObjectRequest，有效期通过 expires=timedelta 传入
+    result = client.presign(
+        oss.GetObjectRequest(bucket=bucket, key=key),
+        expires=datetime.timedelta(seconds=expires),
+    )
 
+    expire_at = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=expires)
     print(f"[OK] 预签名 URL 生成成功")
     print(f"     URL       : {result.url}")
     print(f"     过期时间   : {expire_at.strftime('%Y-%m-%d %H:%M:%S UTC')}")
