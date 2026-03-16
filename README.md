@@ -49,9 +49,9 @@ export OSS_REGION="cn-hangzhou"        # Bucket 所在地域
 export OSS_BUCKET="your-bucket-name"  # 默认 Bucket
 ```
 
-**2. 在 WorkBuddy 中安装 Skill**
+**2. 在 AI工具 中安装 Skill**
 
-将 `aliyun-oss/` 目录放入 WorkBuddy Skill 目录，或通过 WorkBuddy 界面导入。
+将 `aliyun-oss/` 目录放入 AI工具 Skill 目录。
 
 **3. 对话触发示例**
 
