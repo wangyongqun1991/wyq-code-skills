@@ -3,7 +3,7 @@
 > **wyqCode 技能中心** —— 为 [wyqCode] 打造的实用 Skill 合集，由 wyqCode 整理并对外分享。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-2-blue)](#skill-列表)
+[![Skills](https://img.shields.io/badge/Skills-3-blue)](#skill-列表)
 [![Language](https://img.shields.io/badge/Language-Python-3776AB?logo=python&logoColor=white)](https://www.python.org)
 
 ---
@@ -20,6 +20,7 @@ Skill 是 向 AI 注入专业知识、标准工作流和可执行脚本，让 AI
 |-------|------|------|
 | [aliyun-oss](#-aliyun-oss) | 阿里云 OSS 文件增删改查 + 预签名 URL 生成 | Python |
 | [java-alibaba-developer](#-java-alibaba-developer) | 阿里巴巴 Java 开发规范（泰山版）指导 | — |
+| [logistics-saas-design](#-logistics-saas-design) | 物流 SaaS UI 界面设计规范（Transix 设计系统） | CSS/HTML |
 
 ---
 
@@ -114,6 +115,76 @@ python aliyun-oss/scripts/oss_client.py presign --key docs/report.pdf --expires 
 
 ---
 
+##  logistics-saas-design
+
+基于 **Transix 物流管理平台**构建的完整 UI/UX 设计规范 Skill，提供配色方案、字体规范、组件样式、布局结构等完整设计指南。
+
+### 核心特性
+
+- **🎨 紫色渐变主题** - 统一的紫色系配色方案，营造科技感
+- **✍️ Inter Display 字体** - 现代无衬线字体，优秀的数字显示效果
+- **📦 完整组件库** - 按钮、卡片、表单、导航栏等标准组件
+- **📊 数据可视化** - 折线图、柱状图、环形图等图表规范
+- **📱 响应式设计** - 桌面端与移动端完美适配
+- **♿ 无障碍设计** - 符合 WCAG AA 标准的可访问性规范
+
+### 适用场景
+
+- Landing Page 设计与开发
+- Dashboard 数据看板构建
+- 物流管理系统前端开发
+- 数据可视化页面设计
+- 定价模块与营销页面
+
+### 快速上手
+
+在 AI 工具中安装此 Skill 后，可以通过以下方式触发：
+
+```
+帮我设计一个物流管理系统的首页，使用 Transix 设计风格
+创建一个数据统计看板，包含折线图和柱状图
+设计一个定价页面，展示三个套餐选项
+帮我实现一个响应式的侧边栏导航
+```
+
+### 设计规范速览
+
+#### 配色方案
+```css
+/* 主色 - 紫色渐变 */
+--primary-gradient-start: #8B5CF6;
+--primary-gradient-end: #6D28D9;
+
+/* 辅助色 */
+--accent-orange: #F59E0B;
+--data-blue: #60A5FA;
+```
+
+#### 字体规范
+```css
+font-family: 'Inter Display', sans-serif;
+
+/* 字号层级 */
+h1: 48px / Bold
+h2: 36px / Bold
+body: 16px / Regular
+display-xl: 64px / Bold (大数字)
+```
+
+#### 间距系统
+遵循 8px 网格系统：
+- 元素内边距：16px - 24px
+- 组件间距：24px - 32px
+- 区块间距：48px - 96px
+
+### 参考资料
+
+- **原始设计**：[Transix Logistics SaaS - Behance](https://www.behance.net/gallery/249758629/Transix-Logistics-SaaS-Landing-Page-UI-UX-Design)
+- **详细规范**：`references/design_assets.md`
+- **字体资源**：[Inter Font Family](https://rsms.me/inter/)
+
+---
+
 ## 目录结构
 
 ```
@@ -121,16 +192,21 @@ wyq-code-skills/
 ├── aliyun-oss/
 │   ├── SKILL.md            # Skill 主文档（AI 读取）
 │   ├── scripts/
-│   │   └── oss_client.py   # OSS 命令行工具
+│   │   ── oss_client.py   # OSS 命令行工具
 │   ├── references/
 │   │   └── api_reference.md
-│   └── assets/
+│   ── assets/
 ├── java-alibaba-developer/
 │   ├── SKILL.md            # Java 规范 Skill 文档
 │   ├── scripts/
 │   ├── references/
+│   ── assets/
+├── logistics-saas-design/  # ✨ 新增
+│   ├── SKILL.md            # 物流 SaaS UI 设计规范
+│   ├── references/
+│   │   └── design_assets.md # 详细设计素材
 │   └── assets/
-└── LICENSE
+── LICENSE
 ```
 
 ---
